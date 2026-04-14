@@ -1,0 +1,15 @@
+{
+  "name": "synalum-pkm",
+  "version": "1.0.0",
+  "description": "Synalum — Synergy Alumni & Mahasiswa (PKM USK). One-command local dev runner.",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --prefix-colors \"cyan,magenta\" --prefix \"[{name}]\" --names \"API,CLIENT\" \"npm run dev --prefix synalum-api\" \"npm run dev --prefix synalum-client\"",
+    "dev:api": "npm run dev --prefix synalum-api",
+    "dev:client": "npm run dev --prefix synalum-client",
+    "install:all": "npm install --prefix synalum-api && npm install --prefix synalum-client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
