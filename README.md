@@ -162,11 +162,11 @@ JWT_SECRET=your_secret_here
 A default JWT secret is used if none is provided (fine for local dev, change for any shared env).
 
 ---
+👥 Developers
 
-## 👥 Team
-
-Built as a **PKM-KC (Program Kreativitas Mahasiswa — Karsa Cipta)** project at **Universitas Syiah Kuala (USK)**, Aceh, Indonesia.
-
----
-
+Developed and maintained by:
+```
+-Nabil Aulia Dika
+-Ibnul Jawzy
+```
 *Last updated: April 2026*
