@@ -1,172 +1,98 @@
-# 🎓 SYNALUM — Synergy Alumni & Mahasiswa
+<div align="center">
+  <h1>🎓 SYNALUM — Synergy Alumni & Mahasiswa</h1>
+  <p><b>Platform kolaborasi karier kampus</b> yang menghubungkan <b>Alumni</b>, <b>Mahasiswa</b>, dan <b>Dosen</b> Universitas Syiah Kuala melalui tiga pilar utama: <i>Magang</i>, <i>Mentorship</i>, dan <i>Riset</i>.</p>
 
-> **Platform kolaborasi karier kampus** yang menghubungkan **Alumni**, **Mahasiswa**, dan **Dosen** Universitas Syiah Kuala melalui tiga pilar utama: Magang, Mentorship, dan Riset.
+  [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://synalumpreview.netlify.app/)
+  [![React](https://img.shields.io/badge/React-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](#)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
+  [![Express.js](https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)](#)
+  [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)](#)
+</div>
+
+<br>
+## ✨ What is CariQuest?
+
+CariQuest adalah aplikasi *mobile cross-platform* berbasis Flutter yang dirancang khusus untuk ekosistem mahasiswa **Universitas Syiah Kuala (USK)**. Aplikasi ini memecahkan masalah distribusi talenta kampus dengan menyediakan *marketplace* jasa yang mempertemukan pencari bantuan tugas/proyek dengan mahasiswa ahli di bidangnya.
+
+| Role | Core Features |
+|---|---|
+| 🛠️ **Expert** | Mengelola profil portofolio, melakukan *bidding* pada proyek (Quest), menerima pekerjaan, dan melacak saldo pendapatan di Wallet. |
+| 🔍 **Seeker** | Membuat postingan pekerjaan (Quest), mereview pelamar, memantau *lifecycle* proyek (Pending → Working → Review → Finished), dan memberikan rating. |
+| 🛡️ **Admin** | Memantau seluruh transaksi, melakukan verifikasi pengguna, dan memediasi sengketa (*dispute*) antar mahasiswa. |
 
 ---
 
-## ✨ What is Synalum?
+## 🏗 Demo Mock MVP Architecture
 
-Synalum is a full-stack web application built as a **PKM (Program Kreativitas Mahasiswa)** portfolio project. It solves the **disconnect between university graduates and current students** by providing:
+Untuk keperluan *showcase* portofolio yang cepat dan bebas hambatan, versi CariQuest ini dibangun sebagai **100% Offline Local Mock MVP**:
 
-| Role        | What they can do |
-|-------------|-----------------|
-| 🎓 **Alumni** | Post internship / mentorship opportunities, review applicants, manage mentees |
-| 📚 **Mahasiswa** | Browse & apply to opportunities, track applications, build a career profile |
-| 👩‍🏫 **Dosen** | Post official USK-stamped research/internship listings, manage student applicants |
+- **☁️ Zero Cloud Configuration**: Seluruh dependensi Firebase (Auth, Firestore, Storage) telah dihapus total. Tidak ada *API keys*, tidak ada *CORS errors*.
+- **📦 In-Memory Data Engine**: Menggunakan sistem `MockData` terisolasi yang mensimulasikan *database real-time*, *latency*, dan *state persistence* selama aplikasi berjalan.
+- **⚡️ Plug & Play**: Aplikasi siap dijalankan secara instan tanpa perlu *setup server*.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer    | Technology |
-|----------|------------|
-| Frontend | React 19 + Vite 8 |
-| Styling  | Tailwind CSS v4 + Custom Design Tokens |
-| Backend  | Express 5 (Node.js) |
-| Database | **SQLite via `better-sqlite3`** (file-based, zero credentials) |
-| Auth     | JWT (jsonwebtoken) + bcryptjs |
-| HTTP     | Axios (frontend) |
-| Dev      | concurrently, nodemon |
-
-> ✅ **No cloud setup required.** The database is a local `synalum.db` file created automatically on first run.
+| Layer | Technology |
+|---|---|
+| **Framework** | Flutter 3.x (Dart 3.3+) |
+| **State Management** | Riverpod 2.x (`StateNotifier` + `StreamProvider`) |
+| **Routing** | `go_router` 13.x (Declarative App Routing) |
+| **Storage Layer** | `shared_preferences` (Sesi login lokal) |
+| **UI & Animations** | Material 3, `flutter_animate`, `lottie` |
 
 ---
 
-## 📁 Project Structure
+## 🔑 Demo Accounts (Instan Login)
 
-```
-synalum-pkm-main/
-├── package.json          ← Root — one-click dev runner (concurrently)
-├── README.md
-│
-├── synalum-api/          ← Express REST API (port 5000)
-│   ├── server.js
-│   ├── db.js             ← SQLite connection + auto schema init
-│   ├── controllers/
-│   ├── routes/
-│   ├── middlewares/
-│   └── synalum.db        ← Auto-created on first run (git-ignored)
-│
-└── synalum-client/       ← React/Vite frontend (port 5173)
-    ├── src/
-    │   ├── pages/
-    │   ├── components/
-    │   ├── context/
-    │   └── utils/api.js  ← Axios, proxied via Vite → no CORS
-    └── vite.config.js    ← /api proxy → localhost:5000
+Sistem sudah diisi dengan data akun terverifikasi. Gunakan kredensial di bawah ini untuk mencoba berbagai *role* (semua menggunakan password yang sama):
+
+| Role | Email Login | Password |
+|---|---|---|
+| **🎓 Expert** | `expert@demo.com` | `demo123` |
+| **🔍 Seeker** | `seeker@demo.com` | `demo123` |
+| **🛡️ Admin** | `admin@demo.com` | `demo123` |
+
+> *Pro Tip: Layar login sudah dilengkapi tombol "Demo Login" untuk auto-fill.*
+
+---
+
+## 📁 Project Structure (Feature-First)
+
+```text
+cariquest/
+├── lib/
+│   ├── core/         ← Tema, Konstanta, dan MockData Engine
+│   ├── features/     ← Modul independen (Auth, Quest, Expert, Seeker, Wallet)
+│   ├── shared/       ← Model global dan Widget UI yang dapat digunakan ulang
+│   └── main.dart     ← Entry point aplikasi tanpa inisialisasi Firebase
+└── pubspec.yaml
 ```
 
 ---
 
-## 🚀 Quick Start — One Command
+## 🚀 Quick Start — Local Development
 
-### Prerequisites
+Karena menggunakan sistem *Mock Data*, aplikasi ini sangat ringan dan dioptimalkan untuk berjalan langsung di *browser* laptop Anda.
 
-- **Node.js ≥ 18** — [Download](https://nodejs.org)
-- **npm ≥ 9** (comes with Node.js)
-
-### 1. Install all dependencies
-
+**1. Clone Repository**
 ```bash
-# From the root directory:
-npm run install:all
+git clone [https://github.com/nblauliadka/cariquest.git](https://github.com/nblauliadka/cariquest.git)
+cd cariquest
 ```
 
-This installs dependencies for both `synalum-api` and `synalum-client`.
-
-### 2. Run both servers simultaneously
-
+**2. Install Dependencies**
 ```bash
-npm run dev
+flutter pub get
 ```
 
-This single command starts:
-- 🔵 **API** → `http://localhost:5000` (Express + SQLite)
-- 🟣 **Client** → `http://localhost:5173` (React/Vite)
-
-The SQLite database (`synalum.db`) is **auto-created** with all tables on first run — no migration step needed.
-
-### 3. Open the app
-
-Navigate to **[http://localhost:5173](http://localhost:5173)**
-
----
-
-## 🧑‍💻 Running Individually
-
+**3. Run the App (Web Mode Recommended)**
 ```bash
-# API only
-npm run dev:api
-
-# Client only
-npm run dev:client
-```
-
-Or from within each subfolder:
-
-```bash
-# Terminal 1
-cd synalum-api && npm run dev
-
-# Terminal 2
-cd synalum-client && npm run dev
+flutter run -d chrome
 ```
 
 ---
-
-## 🔌 API Endpoints
-
-| Method | Path | Description | Auth |
-|--------|------|-------------|------|
-| `POST` | `/api/auth/register` | Register a new user | — |
-| `POST` | `/api/auth/login` | Login (returns JWT) | — |
-| `POST` | `/api/verify/request-otp` | Request OTP (simulated) | JWT |
-| `POST` | `/api/verify/submit-docs` | Submit LinkedIn/doc URL | JWT |
-| `GET`  | `/api/opportunities/all` | List active opportunities | JWT |
-| `POST` | `/api/opportunities/create` | Create opportunity | JWT (alumni/dosen/admin) |
-| `POST` | `/api/applications/apply` | Apply to opportunity | JWT (mahasiswa) |
-| `GET`  | `/api/applications/:id/applicants` | List applicants | JWT (owner) |
-| `PUT`  | `/api/applications/:id/status` | Accept/reject applicant | JWT (owner) |
-| `GET`  | `/api/health` | Server + DB health check | — |
-
----
-
-## 🎨 Design System
-
-The client uses a custom Tailwind v4 design system with:
-- **Primary:** `#0a6c75` (deep teal)
-- **Accent:**  `#f2994a` (warm orange)
-- **Font:**    Inter (Google Fonts)
-- Glass-morphism cards, gradient text, micro-animations, smooth hover transitions
-
----
-
-## 🏗 Architecture Notes
-
-- **JWT Auth:** Tokens are stored in `localStorage` and attached to all API requests via an Axios interceptor.
-- **Alumni Verification:** 3-layer flow (OTP email simulation → document/LinkedIn URL → peer confirmation). For the MVP, OTP is returned in the response for testing.
-- **Role-Based Routing:** Protected routes in React guard dashboard access by role (`mahasiswa`, `alumni`, `dosen`, `admin`).
-- **No migrations needed:** `db.js` runs `CREATE TABLE IF NOT EXISTS` at server startup automatically.
-
----
-
-## 📝 Environment Variables (optional)
-
-The API works with zero configuration. To customize, create `synalum-api/.env`:
-
-```env
-PORT=5000
-JWT_SECRET=your_secret_here
-```
-
-A default JWT secret is used if none is provided (fine for local dev, change for any shared env).
-
----
-👥 Developers
-
-Developed and maintained by:
-```
--Nabil Aulia Dika
--Ibnul Jawzy
-```
-*Last updated: April 2026*
+<div align="center">
+  <i>Developed by Nabil Aulia Dika & Ibnul Jawzy</i>
+</div>
