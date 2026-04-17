@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🎓 SYNALUM — Synergy Alumni & Mahasiswa</h1>
+  <h1>🎓 SYNALUM - Synergy Alumni & Mahasiswa</h1>
   <p><b>Platform kolaborasi karier kampus</b> yang menghubungkan <b>Alumni</b>, <b>Mahasiswa</b>, dan <b>Dosen</b> Universitas Syiah Kuala melalui tiga pilar utama: <i>Magang</i>, <i>Mentorship</i>, dan <i>Riset</i>.</p>
 
   [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://synalumpreview.netlify.app/)
