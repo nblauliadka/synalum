@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🎓 SYNALUM - Synergy Alumni & Mahasiswa</h1>
-  <p><b>Platform kolaborasi karier kampus</b> yang menghubungkan <b>Alumni</b>, <b>Mahasiswa</b>, dan <b>Dosen</b> Universitas Syiah Kuala melalui tiga pilar utama: <i>Magang</i>, <i>Mentorship</i>, dan <i>Riset</i>.</p>
+  <p><b>A campus career collaboration platform</b> connecting <b>Alumni</b>, <b>Students</b>, and <b>Lecturers</b> of Universitas Syiah Kuala through three main pillars: <i>Internships</i>, <i>Mentorship</i>, and <i>Research</i>.</p>
 
   [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://synalumpreview.netlify.app/)
   [![React](https://img.shields.io/badge/React_19-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](#)
@@ -13,13 +13,13 @@
 
 ## ✨ What is Synalum?
 
-Synalum adalah aplikasi *full-stack web* yang dirancang khusus untuk memecahkan masalah *disconnect* antara lulusan dan mahasiswa aktif di **Universitas Syiah Kuala (USK)**. Aplikasi ini menyediakan *platform* kolaborasi profesional yang terintegrasi langsung dengan ekosistem kampus.
+Synalum is a full-stack web application specifically designed to bridge the disconnect between graduates and active students at **Universitas Syiah Kuala (USK)**. This application provides a professional collaboration platform seamlessly integrated into the campus ecosystem.
 
 | Role | Core Features | 
 | ----- | ----- | 
-| 🎓 **Alumni** | Berkontribusi ke almamater dengan memposting lowongan magang/mentorship, mereview pendaftar, dan mengelola *mentees*. | 
-| 📚 **Mahasiswa** | Menjelajahi dan melamar lowongan (*apply*), melacak status aplikasi, dan membangun profil portofolio karir sejak dini. | 
-| 👩‍🏫 **Dosen** | Memposting lowongan proyek riset atau asisten lab resmi, serta mengelola mahasiswa pendaftar untuk kebutuhan akademik. | 
+| 🎓 **Alumni** | Contribute to the alma mater by posting internship/mentorship opportunities, reviewing applicants, and managing mentees. | 
+| 📚 **Students** | Explore and apply for opportunities, track application statuses, and build an early career portfolio profile. | 
+| 👩‍🏫 **Lecturers** | Post official research projects or lab assistant openings, and manage student applicants for academic purposes. | 
 
 ---
 
